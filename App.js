@@ -11,7 +11,7 @@ export default class App extends Component {
 
   componentDidMount(){
     axios
-    .get('http://localhost:3001/api/opciones')
+    .get('http://localhost:3001/api/projects')
     .then(res => {
       const { data } = res
       this.setState({
@@ -40,7 +40,7 @@ export default class App extends Component {
       <View style={{flex: 1, paddingTop:20}}>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.nombreSistema}, {item.descripcion}</Text>}
+          renderItem={({item}) => <Text>{item.name}: {item.description}</Text>}
           keyExtractor={({_id}) => _id}
         />
       </View>
